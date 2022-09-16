@@ -1,0 +1,179 @@
+@import "../../scss/index";
+
+.competence {
+  background-color: $btn-color;
+  padding-block: 0 4rem;
+  &_container {
+    @include flex(center, space-between, column);
+  }
+  &_content {
+    position: relative;
+    width: 90%;
+    max-width: 90%;
+    @include flex(start, center, column);
+    gap: 2rem;
+    margin-top: 4rem;
+    color: $bg2-color;
+    & > * {
+      color: $white;
+      z-index: 1;
+      position: relative;
+    }
+    p {
+      letter-spacing: 0.8px;
+    }
+  }
+  &_list {
+    @include flex(start, start);
+    background-color: $main-color;
+    margin: 0px 0px -20px 0px;
+    padding: 30px;
+    width: 100%;
+    gap: 1rem 0;
+    flex-wrap: wrap;
+    ul {
+      width: 300px;
+    }
+    li {
+      position: relative;
+      line-height: 2;
+      a {
+        @include fontSize(1.2rem, 2vw, 18px);
+        transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+        letter-spacing: 0.2px;
+        &:hover {
+          color: $white !important;
+          text-decoration: underline;
+          transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+      }
+    }
+    &:last-child {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translateX(95%);
+        opacity: 0;
+        width: 0;
+        height: 0;
+        border-left: 20px solid $main-color;
+        border-top: 20px solid $main-color;
+        border-right: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        z-index: 2;
+        transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      }
+    }
+  }
+  &_img {
+    background-repeat: no-repeat;
+    margin-top: 6rem;
+  }
+
+  @include minWidth(992px) {
+    padding-block: 10rem;
+
+    &_container {
+      flex-direction: row;
+      align-items: start;
+    }
+
+    &_content {
+      width: 45%;
+      max-width: 45%;
+      gap: 1rem;
+    }
+
+    &_list {
+      width: auto;
+      justify-content: center;
+      gap: 0rem;
+      &:last-child::after {
+        opacity: 1;
+        transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      }
+    }
+
+    &_img {
+      margin-top: 0;
+    }
+  }
+  @include minWidth(768px) {
+    padding-block: 4rem;
+    &_list {
+      gap: 8rem;
+      flex-wrap: nowrap;
+      padding: 40px 0px 40px 60px;
+    }
+  }
+}
+
+.numbers {
+  background-image: url("../../assets/images/num-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  &_container {
+  }
+
+  &_content {
+    padding-top: 2rem;
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+   
+    p {
+      letter-spacing: 0.4px;
+    }
+  }
+
+  &_box {
+    margin-top: 4rem;
+    @include flex(center, center);
+    gap: 4rem;
+    flex-wrap: wrap;
+    &_item {
+      @include flex(center, center, column);
+      gap: 0.5rem;
+      h2 {
+        text-align: center;
+        font-size: 40px;
+        width: 100%;
+        font-weight: 300;
+        color: $bg2-color;
+      }
+      h3 {
+        font-size: 20px;
+        letter-spacing: 0.6px;
+        font-weight: 600;
+      }
+      p {
+        text-align: center;
+      }
+    }
+    &_icon {
+      svg {
+        color: $main-color;
+        @include size(40px, 40px);
+      }
+    }
+  }
+
+  @include minWidth(1199px) {
+    height: 70vh;
+    &_box {
+      flex-wrap: nowrap;
+    }
+  }
+  @include minWidth(768px) {
+    &_content {
+      width: 65%;
+      max-width: 65%;
+    }
+  }
+}

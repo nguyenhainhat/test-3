@@ -1,0 +1,90 @@
+@import "../../scss/index";
+
+.footer {
+  background-color: $gray-color;
+  &_container {
+    @include flex(center, start);
+    gap: 0 5rem;
+    flex-wrap: wrap;
+    padding-block: 4rem;
+  }
+
+  &_item {
+    width: 100%;
+    @include flex(start, center, column);
+    padding-block: 2rem 0;
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1em;
+      color: $btn-color;
+      letter-spacing: 0.001em;
+    }
+    p {
+      font-size: 16px;
+      color: $text-color2;
+      letter-spacing: 0.001em;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &_item:not(:first-child) {
+    .footer_list {
+      margin-top: 1rem;
+    }
+  }
+
+  &_logo {
+    width: 20%;
+    height: 50px;
+  }
+
+  &_copyright {
+    border-top: 1px solid rgba(110, 110, 110, 0.2);
+    padding-block: 2rem;
+    text-align: center;
+    p {
+      color: #6e6e6e;
+      @include fontSize(12px, 1vw, 18px);
+      line-height: 25px;
+    }
+    span {
+      text-decoration: underline;
+    }
+  }
+  @include minWidth(768px) {
+    &_container {
+      flex-wrap: wrap;
+      gap: 0 5rem;
+    }
+    &_item {
+      padding-block: 5rem 0;
+      width: calc(100% / 2 - 5rem);
+      min-height: 270px;
+      justify-content: start;
+    }
+    &_logo {
+      width: 35%;
+      height: 44px;
+    }
+    &_item:not(:first-child) {
+      .footer_list {
+        margin-top: 2rem;
+      }
+    }
+  }
+  @include minWidth(992px) {
+    &_container {
+      flex-wrap: nowrap;
+    }
+    &_item {
+      width: calc(100% / 4 - 5rem);
+      justify-content: center;
+    }
+    &_logo {
+      width: 50%;
+    }
+  }
+}

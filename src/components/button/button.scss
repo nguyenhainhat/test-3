@@ -1,0 +1,92 @@
+@import "../../scss/index";
+
+button {
+  cursor: pointer;
+  font-family: $font-family;
+}
+
+.btn {
+  position: relative;
+  @include size(35vw, 40px);
+  padding: 10px;
+  color: $white;
+  font-size: 0.8rem;
+  border: transparent;
+  outline: transparent;
+  cursor: pointer;
+  background-color: $btn-color;
+  transition: all 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  @include flex(center, center);
+  gap: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  &-main:hover {
+    background-color: $main-color;
+    color: $white;
+    transition: all 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  &_arrow {
+    @include fontSize(0.8rem, 2vw, 1.4rem);
+  }
+  &-orange {
+    z-index: 11;
+    background-color: rgb(255, 125, 68);
+    font-family: "DM Sans";
+    text-transform: uppercase;
+    height: auto;
+    width: auto;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    white-space: nowrap;
+    min-height: 0px;
+    min-width: 0px;
+    max-height: none;
+    max-width: none;
+    text-align: left;
+    line-height: 58px;
+    font-weight: 700;
+    @include fontSize(12px, 1vw, 14px);
+    padding-left: 39px;
+    padding-right: 39px;
+    filter: blur(0px) grayscale(0%) brightness(100%);
+    transform-origin: 50% 50%;
+    opacity: 1;
+    transform: translate(0px, 0px);
+    visibility: visible;
+    border-width: 0px;
+    border-radius: 0px;
+    transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    &:hover {
+      background-color: $white;
+      color: $bg2-color;
+      transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+  }
+  &-nobg {
+    text-transform: uppercase;
+    color: #034b5b;
+    background-color: #f5f5f5;
+    margin: 0px;
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    &:hover {
+      color: #ffffff;
+      background-color: #ff7d44;
+      transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+  }
+  @include minWidth($lg) {
+    padding: 10px 20px;
+    @include size(190px, 60px);
+
+    @include fontSize(0.6rem, 2vw, 1rem);
+  }
+  @include maxWidth(991px) {
+    @include size(26vw, 50px);
+  }
+ 
+  @include maxWidth(550px) {
+    @include size(44vw, 50px);
+  }
+}

@@ -1,0 +1,62 @@
+@import "./variables";
+@import "./mixin";
+
+$container-width: (
+  1310px: 3000px,
+  1140px: 1200px,
+  93vw: 992px,
+  720px: 768px,
+  540px: 576px,
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  4xl: 3000px,
+);
+
+$column: 13;
+
+@each $width, $br in map-keys($container-width) {
+  $w-container: map-get(
+    $map: $container-width,
+    $key: $width,
+  );
+  @include maxWidth($w-container) {
+    .container {
+      max-width: $width;
+    }
+  }
+}
+
+// @each $grid in map-keys($grid-breakpoints) {
+//   $grid-value: map-get(
+//     $map: $grid-breakpoints,
+//     $key: $grid,
+//   );
+//   @for $var from 1 to $column {
+//     @include minWidth($grid-value) {
+//       $column-value: calc(($column - 1) / $var);
+//       @if $grid == xs {
+//         .col-#{$var} {
+//           flex: 0 0 calc((100% / $column-value));
+//           max-width: calc((100% / $column-value));
+//         }
+//       } @else {
+//         .col-#{$grid}-#{$var} {
+//           flex: 0 0 calc((100% / $column-value));
+//           max-width: calc((100% / $column-value));
+//         }
+//       }
+//     }
+//     .col-#{$grid}-#{$var} {
+//       position: relative;
+//       width: 100%;
+//       padding-right: 15px;
+//       padding-left: 15px;
+//     }
+//   }
+// }
